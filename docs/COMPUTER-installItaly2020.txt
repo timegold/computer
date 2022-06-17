@@ -1,0 +1,260 @@
+ Mojave
+
+TRYING TO INSTALL MOLECFIT: FAILS
+------------------------------------------------------------------
+ Mac Port
+ 
+ftp://ftp.eso.org/pub/dfs/pipelines/skytools/molecfit/Install.txt
+sudo port install py27-astropy py27-matplotlib py27-wxpython-3.0
+gnuplot
+ 
+chmod u+x ./molecfit_installer.run
+./molecfit_installer.run
+
+
+https://www.eso.org/sci/software/pipelines/reflex_workflows/
+sudo port selfupdate
+sudo port upgrade outdated
+sudo port install py27-matplotlib py27-wxpython-2.8 py27-numpy py27-astropy pkgconfig autoconf automake libtool yorick yorick-yeti yorick-optimpack xorg-server libffi
+sudo port select --set python python27
+Please make sure that the version of python used is the one from MacPorts by adding 
+/opt/local/bin first in your path. This depends on your shell. 
+For bash:
+export PATH=/opt/local/bin:$PATH
+
+
+[Marias-MacBook-Pro:~] mmessine% python -c 'import wx'  OK
+[Marias-MacBook-Pro:~] mmessine% python -c 'import astropy.io.fits'  OK
+[Marias-MacBook-Pro:~] mmessine% python -c 'import matplotlib; import matplotlib.backends.backend_wxagg'
+Fontconfig warning: ignoring UTF-8: not a valid region tag
+
+##########ALTERNATIVE installation
+https://docs.conda.io/en/latest/miniconda.html
+https://repo.anaconda.com/miniconda/Miniconda2-latest-MacOSX-x86_64.pkg
+shasum -a 256 filename
+conda create -n skytools matplotlib astropy wxpython
+#     $ conda activate skytools
+#     $ conda deactivate
+
+Where is the GUI?
+
+#####################Thirtd party distribution
+
+molecfit_third_party-1.5.7
+make -f BuildThirdParty.mk install prefix=/Users/mmessine/software/pollo2
+configure: error: C preprocessor "/lib/cpp" fails sanity check
+
+
+$ cd cfitsio
+      $ ./configure --prefix=/usr/local   CFLAGS="-arch x86_64" CC='cc'
+      $ make
+      $ make shared
+      $ make install --with-reentrant
+
+########################################################################################
+sudo port install fftw NOGOOD
+
+http://www.fftw.org/download.html
+http://www.fftw.org/fftw-3.3.8.tar.gz
+
+https://stackoverflow.com/questions/22275009/error-in-compiling-fftw-configure-error-c-compiler-cannot-create-executables
+./configure --enable-float CFLAGS="-arch x86_64" CC='cc'
+make 
+make install
+
+
+wcslib-4.24
+./configure CC=cc
+make
+make install
+
+########################################################################################
+
+;;;;;;;;;;
+https://www.eso.org/sci/software/cpl/download.html
+
+Then CPL can be install with:
+NO ./configure CC="c99" --prefix=/Users/mmessine/software/pollo  --enable-threads=no --with-cfitsio=/usr/local/lib     FFTWDIR=/opt/local/lib/   --with-fftw-includes=/opt/local/include/
+NO ./configure CC="cc" --prefix=/Users/mmessine/software/pollo  --enable-threads=no --with-cfitsio=/usr/local/lib     --with-fftw=/usr/local/lib/   --with-fftw-includes=/usr/local/include/
+
+
+YES ./configure CC="clang" CFLAGS="-arch x86_64" --prefix=/Users/mmessine/software/pollo  --enable-threads=no --with-cfitsio=/usr/local/lib    FFTWDIR=/usr/local/lib/
+make
+make install
+
+warnings
+ld: warning: directory not found for option '-L/usr/local/lib/lib64'
+ld: warning: directory not found for option '-L/usr/local/lib/lib'
+ld: warning: directory not found for option '-L/usr/local/lib//lib64'
+ld: warning: directory not found for option '-L/usr/local/lib//lib'
+libtool: link: (cd ".libs" && rm -f "libcpldfs.dylib" && ln -s "libcpldfs.26.dylib" "libcpldfs.dylib")
+libtool: link: ( cd ".libs" && rm -f "libcpldfs.la" && ln -s "../libcpldfs.la" "libcpldfs.la" )
+
+
+######### ESO MOLECfit compilation
+NO    ./configure --prefix=/Users/mmessine/software/pollo --with-cpl=/Users/mmessine/software/pollo/  CC='cc -std=c99  -fstack-protector-all '  CFLAGS="-arch x86_64"
+YES    ./configure --prefix=/Users/mmessine/software/pollo --with-cpl=/Users/mmessine/software/pollo/  --with-gnu-ld CC="cc  -arch x86_64 -std=c99"  CXX="c++ -arch x86_64 -std=c99"  CPP="cc -E -std=c99 " CXXCPP="c++ -E -std=c99"
+
+make
+make install
+
+./configure --prefix=/Users/mmessine/software/pollo --with-cpl=/Users/mmessine/software/pollo/   CC="cc" CFLAGS="-arch x86_64 "    CPP="cc -E " 
+LDFLAGS
+ 
+[Marias-MacBook-Pro:~/software/pollo/bin] mmessine% ./molecfit
+dyld: Library not loaded: /opt/local/lib/libcfitsio.dylib
+  Referenced from: /Users/mmessine/software/pollo/bin/./molecfit
+  Reason: Incompatible library version: molecfit requires version 7.0.0 or later, but libcfitsio.dylib provides version 0.0.0
+Abort
+
+
+sudo rm  libcfitsio.dylib
+sudo ln -s libcfitsio.7.3.45.dylib libcfitsio.dylib
+
+############################################
+
+TRYING TO INSTALL: ESOREX
+
+------------------------------------------------------------------
+many duplicate files
+installation via macport failed /opt/local/share
+manual installation runs (only esorex tested, not installed anything else)
+
+
+NO ./configure --prefix=/Users/mmessine/software/pollo --with-cpl=/Users/mmessine/software/pollo  --with-cfitsio=/usr/local/lib  CC="gcc83  -arch i386 -arch x86_64 -arch ppc -arch ppc64" CXX="g++83 -arch i386 -arch x86_64 -arch ppc -arch ppc64"  CPP="cpp83 -E" CXXCPP="g++83 -E " DFLAGS=-O3
+YES ./configure --prefix=/Users/mmessine/software/pollo --with-cpl=/Users/mmessine/software/pollo  --with-cext=/Users/mmessine/software/pollo/ --with-cfitsio=/usr/local/lib  CC="cc  -arch x86_64"  CXX="c++ -arch x86_64 "  CPP="cc -E" CXXCPP="c++ -E"
+ make
+ make install
+ 
+https://www.eso.org/sci/software/pipelines/installation/macports.html#install   
+sudo port install esopipe-sinfo-all
+ 
+retrieve sinfo-pipe
+/Users/mmessine/software/sinfo-kit-3.2.3-4/
+install gsl ./configure CC=cc make make install
+[Marias-MacBook-Pro:~/software/sinfo-kit-3.2.3-4/sinfo-3.2.3] mmessine% ./configure CC=cc --with-cpl=/Users/mmessine/software/pollo
+make
+make install 
+ 
+
+
+
+
+######################SINFO PIPE
+README
+cfitsio3450.tar.gz      manually installes  /usr
+cpl-7.1.1.tar.gz        manually installes  /usr
+esorex-3.13.2.tar.gz    manually installes  /usr
+esorex.log
+fftw-3.3.4.tar.gz       manually installes  /usr
+gasgano-2.4.8.tar.gz
+gsl-2.1                 OK (see abve)
+gsl-2.1.tar.gz
+install.log
+install_pipeline        manually installes  /usr
+sinfo-3.2.3             OK manually
+sinfo-3.2.3.tar
+sinfo-calib-3.2.3
+sinfo-calib-3.2.3.tar.gz
+sinfo-config-3.2.3.tar.gz
+sinfo-pipeline-manual-3.2.3.pdf
+sinfo-reflex-tutorial-3.2.3.pdf
+sinfoc
+wcslib-4.24.tar.bz2      OK (see abve)
+
+ 
+/Users/mmessine/software/pollo/bin/esorex --recipes
+esorex  sinfo_rec_mflat  pipe.flat  
+esorex sinfo_rec_jitter  may.v2.par
+HIERARCH ESO DPR TYPE        = 'OBJECT  '   / Observation type   
+move to SKY to try
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+TRYING to install prospector
+several python installed
+
+/opt/local/bin/python3.8  
+/opt/local/bin/python2.7  
+/opt/miniconda2/bin/python2.7
+/Users/mmessine/opt/miniconda3/bin/python3.8
+/usr/bin/python2.7/
+
+get Pyfits
+get scipy
+
+http://hosting.astro.cornell.edu/staff/loredo/samsi/osx-install.html
+https://stackabuse.com/python-list-files-in-a-directory/
+
+https://pypi.org/project/pyfits/#files obsolate, astropy
+git clone https://github.com/scipy/scipy.git scipy
+I have already astropy , scipy from the miniconda installation
+
+export PYTHONPATH = $PYTHONPATH:/Users/mmessine/software/PYTHON/prospector/golla
+
+import sys
+sys.path
+sys.path.append("/home/me/mydir")
+
+
+git clone  prospector-main
+git clone  sedpy
+OK firt part installation. Requiring fsps
+
+BASTI isocrones.
+https://github.com/dfm/python-fsps
+git clone https://github.com/dfm/python-fsps.git
+https://github.com/cconroy20/fsps
+
+https://github.com/dfm/python-fsps/pull/87
+
+http://dfm.io/python-fsps/current/installation/#prerequisites
+python-fsps
+
+#from fsps import __version__  # NOQA
+__version__ = ["0.3.0"]
+fixed by adding by hands the version in --ini--py
+
+python3 setup.py install --prefix golla
+fails again
+
+https://stackoverflow.com/questions/30624829/no-such-file-or-directory-limits-h-when-installing-pillow-on-alpine-linux
+This looks the case.
+
+Problems with f2py. The 1.10.x versions of numpy introduced some compatibility problems in f2py. These seem to have been fixed in 1.11.x versions and the fixes retroactively added to the 1.10.x versions, but if you encounter long complicated error messages that end with something like KeyError: 'void', please consider upgrading your numpy installation.
+/Users/mmessine/opt/miniconda3/bin/f2py
+/Users/mmessine/opt/miniconda3/pkgs
+numpy-1.19.2-py38h456fd55_0/bin/
+numpy-1.19.2-py38h456fd55_0.conda
+numpy-base-1.19.2-py38hcfb5961_0/bin/f2py
+numpy-base-1.19.2-py38hcfb5961_0.conda
+
+
+/opt/local/var/macports/software/py27-numpy/
+/Users/mmessine/software/pythonLIB/numpy
+
+export PYTHONPATH=$PYTHONPATH:/Users/mmessine/software/pythonLIB/numpy
+export PYTHONPATH=numpy-base-1.19.2-py38hcfb5961_0/bin/
+export PYTHONPATH=$PYTHONPATH:numpy-1.19.2-py38h456fd55_0/bin/
+export PYTHONPATH=$PYTHONPATH:golla/lib/python3.8/site-packages/
+export PYTHONPATH=$PYTHONPATH:golla/
+
+
+export PYTHONPATH=$PYTHONPATH:/Users/mmessine/software/PYTHON/python-fsps/golla
+export PYTHONPATH=$PYTHONPATH:/Users/mmessine/software/PYTHON/python-fsps/golla/lib/python2.7/site-packages
+export SPS_HOME=fsps-3.0
+python setup.py install --prefix golla
+
+NO  /opt/miniconda2/bin/python setup.py install --prefix golla
+no numpy
+
+NO  /opt/local/bin/pythonw2.7 setup.py install --prefix golla
+NO /opt/local/bin/python2.7 setup.py install --prefix golla
+fsps.f90
+
+/opt/local/bin/python3.8  
+/opt/local/bin/python2.7  
+/opt/miniconda2/bin/python2.7
+/Users/mmessine/opt/miniconda3/bin/python3.8
+/usr/bin/python2.7/

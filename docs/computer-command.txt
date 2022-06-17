@@ -1,0 +1,43 @@
+-----------------------------------------------
+mac
+
+
+anaconda3 here doen not work in yosemite...reinstall
+yosemite: gildas ok
+          supermog
+          Spex pipeline
+          
+mojavek: miniconda3 ok
+         esorex
+
+
+htlatex    transform file.tex in file.html
+
+
+clonation: ATTENTION
+    important try to use Utility from the Mojave installation
+    and restore The HD Machintosh disk 
+    where you want (need two external). (result is already bootable).
+    It does not work with Yosemite. 
+    1) click externalHD Bar
+    2) restore
+    3) "Restore from" main drive 
+-----------------------------------------------
+
+linux
+How to mount an ext3 harddrive:
+sudo mount_ext2 -o rdonly -x /dev/disk1s1 /Volumes/linux
+
+to format a new disk
+sudo mkfs -t ext3 /dev/sdb1   (check dev)
+
+mount -t vfat /dev/sdb1 /media/point
+yum -y install pine
+yum -y instille alpine (alpine also available for Mac ... in yosemite)
+
+sudo chown -R messineo DIR or FILE (change of owner)
+
+         
+----------------------------------         
+http://www.lessemf.com
+http://emfclothing.com
