@@ -1,0 +1,16 @@
+<html>
+  
+  <br>
+  https://www.cosmos.esa.int/web/gaia-users/archive/writing-queries
+  
+  https://superuser.com/questions/843345/microsoft-sql-select-from-where-query-with-varchar-type-column
+  
+  <br> example:
+  <br> original_ext_source_id is a VARCHAR
+  <br> use the LIKE operator and the quote
+  <br> query=f"SELECT source_id,  clean_tmass_psc_xsc_oid, original_ext_source_id  
+  <br>        FROM   gaiadr3.tmass_psc_xsc_best_neighbour    
+  <br>        WHERE original_ext_source_id LIKE '{namedr3}' "
+
+  
+</html>
