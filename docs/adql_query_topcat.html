@@ -21,3 +21,13 @@
 <br>W1mag, e_W1mag, W2mag, e_W2mag, W3mag, e_W3mag, W4mag, e_W4mag, ccf, ex, var, qph
 <br>  FROM   gaiadr3.allwise_best_neighbour, TAP_UPLOAD.t1 as ul 
 <br>  WHERE original_ext_source_id = ul.AllWISE
+
+
+  
+<br> VIZIER server
+<br> SELECT * FROM "II/246/out"
+<br> WHERE ( "II/246/out".Kmag-"II/246/out".Hmag >5 )
+<br> I am not able to call by name the columns
+<br> with * the saved headers does not match column
+<br> designations comes with quotes
+
