@@ -13,7 +13,7 @@
 <br> FROM "II/328/allwise"
 <br> WHERE ( "II/328/allwise".W3mag-"II/328/allwise".W4mag > -30 and "II/328/allwise".W1mag-"II/328/allwise".W2mag < 90 )
 
-
+<br>
 <br> ARI server
 
 <br> SELECT source_id, original_ext_source_id, angular_distance, allwise_oid, 
@@ -24,6 +24,7 @@
 
 
   
+<br>
 <br> VIZIER server
 <br> SELECT * FROM "II/246/out"
 <br> WHERE ( "II/246/out".Kmag-"II/246/out".Hmag >5 )
@@ -31,3 +32,12 @@
 <br> with * the saved headers does not match column
 <br> designations comes with quotes
 
+<br>
+<br>IRSA server, fp_2mass
+<br>SELECT designation, ra, dec, j_m, j_msig, h_m, h_msig, k_m, k_msig, rd_flg, ph_qual  
+<br>FROM fp_psc
+<br> WHERE ( k_m-h_m) BETWEEN -3 AND 6 )
+<br> operations between columns do not work  
+
+
+  
