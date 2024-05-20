@@ -1,4 +1,4 @@
-<br> VIZIER 
+<br> VIZIER server
 
 <br> SELECT "II/328/allwise".AllWISE, "II/328/allwise".RAJ2000, "II/328/allwise".DEJ2000, 
 <br> "II/328/allwise".Jmag, "II/328/allwise".e_Jmag, 
@@ -11,5 +11,13 @@
 <br> "II/328/allwise".ccf, "II/328/allwise".ex, "II/328/allwise".var, "II/328/allwise".qph,
 <br> "II/328/allwise".W3mag-"II/328/allwise".W4mag as w3_w4
 <br> FROM "II/328/allwise"
-<br> WHERE ( "II/328/allwise".W3mag-"II/328/allwise".W4mag > -30 and "II/328/allwise".W3mag-"II/328/allwise".W4mag < 90 )
+<br> WHERE ( "II/328/allwise".W3mag-"II/328/allwise".W4mag > -30 and "II/328/allwise".W1mag-"II/328/allwise".W2mag < 90 )
 
+
+<br> ARI server
+
+<br> SELECT source_id, original_ext_source_id, angular_distance, allwise_oid, 
+<br>RAJ2000, DEJ2000, Jmag,e_Jmag, Hmag, e_Hmag, Kmag, e_Kmag,
+<br>W1mag, e_W1mag, W2mag, e_W2mag, W3mag, e_W3mag, W4mag, e_W4mag, ccf, ex, var, qph
+<br>  FROM   gaiadr3.allwise_best_neighbour, TAP_UPLOAD.t1 as ul 
+<br>  WHERE original_ext_source_id = ul.AllWISE
