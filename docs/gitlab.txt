@@ -1,7 +1,23 @@
-https://help.gitkraken.com/git-integration-for-jira-data-center/integration-guides-gij-self-managed/
+<html>
+<br>
+<td style="text-align: center;"><a href="https://help.gitkraken.com/git-integration-for-jira-data-center/integration-guides-gij-self-managed/">
+    Git</a></td>
 
-https://help.gitkraken.com/git-integration-for-jira-data-center/gitlab-gij-self-managed/
+<br><td style="text-align: center;"><a href="https://help.gitkraken.com/git-integration-for-jira-data-center/gitlab-gij-self-managed/">
+    GitLab</a></td>
+<br><td style="text-align: center;"><a href="https://www.youtube.com/watch?v=mnYbOrj-hLY">
+    GitLab video</a></td>
 
-https://www.youtube.com/watch?v=mnYbOrj-hLY
 
-https://handbook.gitlab.com/handbook/business-technology/data-team/platform/
+
+
+<br><td style="text-align: center;"><a href="https://handbook.gitlab.com/handbook/business-technology/data-team/platform/">
+    GitLab video</a></td>
+
+
+
+  
+  
+  
+   
+</html>
