@@ -22,11 +22,21 @@
 
   <li> compare columns</li>
     <br> print(outer['SOURCE_ID'].compare(outer['source_id']))
-  <li> read_csv and types </li>
+  
+   <li> read_csv and types 
    <br> datacsv = pd.read_csv('miles_end.csv',dtype=str) ALL string
+
+  <br> datacsv = pd.read_csv('miles_end.csv',header=None) 
+       datacsv2=datacsv.rename(columns={\
+       0:"NAME",\
+       1:"source_id",\
+       2:"RA",\
+       3:"DEC"})
+       print(data2)
+    </li>
+
   
   <br>
-  
   <li> coordinates
     
     <br><a href="https://docs.astropy.org/en/stable/coordinates/apply_space_motion.html"> astropy  coordinates precess apply proper motion</a>
