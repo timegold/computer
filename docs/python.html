@@ -19,11 +19,12 @@
     <br> pandas: df.drop_duplicates(inplace=True)
 
     <br> numpy: numpy.unique
+  </li>
 
   <li> compare columns</li>
     <br> print(outer['SOURCE_ID'].compare(outer['source_id']))
   
-   <li> read_csv and types 
+   <li> read_csv, specify  types, add header 
     <br> datacsv = pd.read_csv('miles_end.csv',dtype=str) ALL string
 
     <br> datacsv = pd.read_csv('miles_end.csv',header=None) 
@@ -35,6 +36,11 @@
        print(data2)
     </li>
 
+  <li> add a new column to your dataframe
+    data
+    data['kfactor']=data['DMmod3'].values*0.0+1.1
+
+  </li>
   
   <br>
   <li> coordinates
