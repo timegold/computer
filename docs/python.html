@@ -49,9 +49,12 @@
   <li> add a new column to your dataframe
     data
     <br>data['kfactor']=data['DMmod3'].values*0.0+1.1
-
-  </li>
-  
+ </li>
+ 
+  <li> column of string, make another colum with  the first letter,
+    useful for spectral types
+    <br>df['col'] = df['col'].str.slice(0, 1)
+      
   <br>
   <li> coordinates
     
