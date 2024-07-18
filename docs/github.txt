@@ -96,7 +96,20 @@ git subtree split -q --squash --prefix=templates/default  --rejoin -b merging/or
 # add separate branch as subdirectory on master.
 git checkout master
 git subtree add --prefix=jsdoc-template --squash merging/jsdoc
-
 https://docs.github.com/en/get-started/using-git/about-git#basic-git-commands
-
 git read-tree --prefix=pollo/ -u origin/main
+
+
+------------------------------------------------------
+COMMAND to clone only a subdirectory of a repository
+------------------------------------------------------
+mkdir LALA
+cd LALA
+git init
+git remote add -f origin https://github.com/lamortadella/BPRPlibraries
+git config core.sparseCheckout true
+echo "DAWD_spectra" >> .git/info/sparse-checkout
+git checkout -b main
+git pull origin main
+
+
