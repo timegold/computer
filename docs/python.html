@@ -62,6 +62,33 @@
   <li> coordinates
     
     <br><a href="https://docs.astropy.org/en/stable/coordinates/apply_space_motion.html"> astropy  coordinates precess apply proper motion</a>
+  
+   <li> matches two internal catalogs via coordinates
+     <br>
+ <br> #matching two internal catalog cannot be done with Xmatch
+<br> #https://docs.astropy.org/en/stable/coordinates/matchsep.html
+<br> catalog = SkyCoord(ra=phot2['ra']*u.degree, dec=phot2['dec']*u.degree,frame='icrs') 
+<br> c = SkyCoord(ra=racall*u.degree, dec=deccall*u.degree)
+<br> idx, d2d, d3d = c.match_to_catalog_sky(catalog)
+
+<br> matches = catalog[idx]
+<br> separation=np.asarray(d2d)*3600.0
+<br> max_sep = 2.0 * u.arcsec
+<br> sep_constraint = d2d < max_sep
+
+<br> myindex=idx[sep_constraint]
+
+
+<br> #You can read deeper into the details of indexing here, 
+<br> #but the key thing to understand is that .iloc returns 
+<br> #rows according to the positions specified, whereas .loc 
+<br> #returns rows according to the index labels specified. 
+<br> #So if your indices aren't sorted, .loc and .iloc will behave differently.
+<br> phot3=phot2.iloc[idx]
+<br> phot3.to_csv("gaiaphot.cds_last.csv")
+
+  
+  
   <li><td style="text-align: center;"><a href="https://www.mit.edu/~iancross/python/">IanCross' Python </a></td></li>
 
    <li> simbad API query
