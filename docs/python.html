@@ -49,6 +49,21 @@
        <br> print(data2)
     </li>
 
+  <br> 
+  <li> printing on file
+  <br> mergo.to_csv("estimate.csv", sep=",",float_format='%.3f')
+  <br> hh="simbad source_id twomass RA DEC DM Kabs Mbol Lum"
+  <br> np.savetxt('estimatetest.csv', mergo.values, fmt='%30s %20s %17s %13.6f %13.6f %13.6f %7.3f %7.3f %7.3f',header=hh,comments='')
+   </li>
+
+  <br> 
+  <li> printing on screen
+  <br> pd.set_option('display.max_rows', None)
+  <br> pd.set_option('display.max_columns', None)
+  <br> print(mergo)
+  </li>
+
+
   <li> add a new column to your dataframe
     data
     <br>data['kfactor']=data['DMmod3'].values*0.0+1.1
