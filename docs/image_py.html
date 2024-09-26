@@ -2,6 +2,8 @@
   
   <td style="text-align: center;"><a href="https://www.youtube.com/watch?v=8DvywoWv6fI">Python for beginners</a></td>
   <br>
+
+<li>consider also learning scikit-image and ti install astrolib.py </li>  
 <br>import numpy as np
 <br>import matplotlib.pyplot as plt
 <br>import astropy.visualization
@@ -11,14 +13,14 @@
 <br>from astropy.visualization import make_lupton_rgb
 <br>from astropy.wcs import WCS
 <br>from astropy.io import fits
-
+<br>
 <br>#Python: Spawning another program
 <br>#https://stackoverflow.com/questions/34952291/python-spawning-another-program
 <br>A='test.fits htan.txt'
 <br>cmd='/Users/mmessine/software/Montage_v3.3/bin/mproject '+'IC2391-0074_2001.fits '+A 
 <br>print(cmd)
 <br>result = os.system(cmd)
-
+<br>
 <br>hdu1= fits.open('test.fits') #UVES acquisition
 <br>hdu1.info()
 <br>im1 = hdu1[0].data*1.0
@@ -26,7 +28,7 @@
 <br>hdu2 = fits.open('dss2-red_IC2391-0074.fits') #dss2
 <br>hdu2.info()
 <br>im2 = hdu2[0].data*1.0
-
+<br>
 <br>#https://learn.astropy.org/tutorials/celestial_coords1.html
 <br>header = hdu1[0].header
 <br>wcs_helix = WCS(header)
@@ -62,7 +64,7 @@
 <br>plt.savefig('foo.png')
 
 <br>sys.exit()
-
+<br>
 
 
 <br>#reproject installation warnings
