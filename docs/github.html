@@ -55,7 +55,15 @@
 <br>git push origin master --force 
 
 
-
+<br> ATTENTION when .jit is becoming too big
+  use the following cleanse
+  <br> git reflog expire --all --expire=now
+<br> git gc --prune=now --aggressive
+<br> <a href="https://stackoverflow.com/questions/58679210/how-to-stop-git-repositories-from-getting-too-big"> post </a>
+  
+<br> error: RPC failed; HTTP 500 curl 22 The requested URL returned error: 500 Internal Server Error
+<br> <a href="https://www.cyberithub.com/solved-git-push-error-rpc-failed-http-500-curl-22-the-requested-url-returned-error/"> post </a>
+<br> <a href="https://thomas-cokelaer.info/blog/2019/08/git-error-solved-the-remote-end-hung-up-unexpectedly/"> post </a>
 
 
 </html>
