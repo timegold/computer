@@ -85,6 +85,12 @@
   <li> column of string, make another colum with  the first letter,
     useful for spectral types
     <br>df['col'] = df['col'].str.slice(0, 1)
+
+    <li> isin
+    <br>exc=['2030581720632894976','3105244557397191936','3351572648491648768']
+    <br>  cds2.loc[cds2['source_id'].isin(exc), 'bprp_jpg'] = 'none'
+
+    </li>
       
   <br>
   <li> coordinates
